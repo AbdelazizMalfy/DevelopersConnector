@@ -81,8 +81,7 @@ router.post('/login', (req,res) => {
     User.findOne({email})
     .then(user => {
         if(!user){
-            errors.email = 'User not found'
-            return res.status(404).json(errors);
+            return res.status(404).json({email:'User not found'});
         }
 
         bcrypt.compare(password,user.password)
@@ -97,13 +96,12 @@ router.post('/login', (req,res) => {
                 jwt.sign(payload , keys.secretOrKey , {expiresIn : 3600} , (err,token) =>{
                     res.json({
                         success: true,
-                        toke: 'Bearer ' + token
+                        token: 'Bearer ' + token
                     })
                 } )
 
             } else {
-                errors.password = 'Password is incorrect'
-                return res.status(400).json(errors);
+                return res.status(400).json({password:'Password is incorrect'});
             }
         })
     } )
