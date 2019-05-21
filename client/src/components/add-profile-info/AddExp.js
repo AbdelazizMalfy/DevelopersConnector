@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link , withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+import classnames from 'classnames';
+
 import {addExp} from '../../actions/profileAction';
 
 class AddExp extends Component {
@@ -59,7 +61,7 @@ class AddExp extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <Link to="/dashboard\" className="btn btn-light">
+              <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
               <h1 className="display-4 text-center">Add Your Experience</h1>
@@ -69,7 +71,9 @@ class AddExp extends Component {
                 <div className="form-group">
                   <input 
                   type="text" 
-                  className="form-control form-control-lg" 
+                  className={classnames("form-control form-control-lg", {
+                    'is-invalid':errors.title
+                  })} 
                   placeholder="* Job Title" 
                   name="title" 
                   value= { this.state.title } 
@@ -79,7 +83,9 @@ class AddExp extends Component {
                 <div className="form-group">
                   <input 
                   type="text" 
-                  className="form-control form-control-lg" 
+                  className={classnames("form-control form-control-lg", {
+                    'is-invalid':errors.company
+                  })} 
                   placeholder="* Company" 
                   name="company" 
                   value= { this.state.company }
@@ -89,7 +95,9 @@ class AddExp extends Component {
                 <div className="form-group">
                   <input 
                   type="text" 
-                  className="form-control form-control-lg" 
+                  className={classnames("form-control form-control-lg", {
+                    'is-invalid':errors.location
+                  })}
                   placeholder="Location" 
                   name="location"
                   value= { this.state.location } 
@@ -100,7 +108,9 @@ class AddExp extends Component {
                 <div className="form-group">
                   <input 
                   type="date" 
-                  className="form-control form-control-lg" 
+                  className={classnames("form-control form-control-lg", {
+                    'is-invalid':errors.from
+                  })}
                   name="from"
                   value= { this.state.from } 
                   onChange = {this.onChange} />
@@ -110,7 +120,9 @@ class AddExp extends Component {
                 <div className="form-group">
                   <input 
                   type="date" 
-                  className="form-control form-control-lg" 
+                  className={classnames("form-control form-control-lg", {
+                    'is-invalid':errors.to
+                  })} 
                   name="to"
                   value= { this.state.to } 
                   onChange = {this.onChange}
@@ -119,7 +131,9 @@ class AddExp extends Component {
                 </div>
                 <div className="form-check mb-4">
                   <input 
-                  className="form-check-input" 
+                  className={classnames("form-check-input", {
+                    'is-invalid':errors.current
+                  })}
                   type="checkbox" 
                   name="current" 
                   id="current"

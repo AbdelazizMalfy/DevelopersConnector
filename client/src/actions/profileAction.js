@@ -63,6 +63,19 @@ export const addExp = (newExp,history) => dispatch => {
             )
 }
 
+// Add education 
+
+export const addEdu = (newEdu,history) => dispatch => {
+    axios.post('/api/profile/education', newEdu)
+        .then( res => history.push('/dashboard'))
+        .catch( err => 
+            dispatch({
+                type: 'GET_ERRORS',
+                payload: err.response.data
+            })
+            )
+}
+
 
 
 
