@@ -37,6 +37,36 @@ export const clearCurrentProfile = () => {
     }
 }
 
+// Create New Profile
+
+export const createProfile = (profileData, history) => dispatch => {
+    axios.post('/api/profile', profileData)
+        .then(res => history.push('/dashboard'))
+        .catch( err => 
+            dispatch ({
+                type: 'GET_ERRORS',
+                payload: err.response.data
+            })
+            )
+}
+
+//Add Experience
+
+export const addExp = (newExp,history) => dispatch => {
+    axios.post('/api/profile/experience', newExp)
+        .then(res => history.push('/dashboard'))
+        .catch(err => 
+            dispatch ({
+                type: 'GET_ERRORS',
+                payload: err.response.data
+            })
+            )
+}
+
+
+
+
+
 // Delete Account and Profile 
 
 export const deleteAccount = () => dispatch => {
@@ -55,17 +85,4 @@ export const deleteAccount = () => dispatch => {
                     })
                     )
     }
-}
-
-// Create New Profile
-
-export const createProfile = (profileData, history) => dispatch => {
-    axios.post('/api/profile', profileData)
-        .then(res => history.push('/dashboard'))
-        .catch( err => 
-            dispatch ({
-                type: 'GET_ERRORS',
-                payload: err.response.data
-            })
-            )
 }

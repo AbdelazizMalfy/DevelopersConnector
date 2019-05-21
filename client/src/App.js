@@ -16,6 +16,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/create-profile/CreateProfile';
 import EditProfile from './components/edit-profile/EditProfile';
 import PrivateRoute from './components/common/PrivateRoute';
+import AddExp from './components/add-profile-info/AddExp';
 
 import './App.css';
 
@@ -51,6 +52,9 @@ function App() {
             </Switch>
             <Switch>
               <PrivateRoute exact path="/edit-profile" component = { EditProfile } />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/add-experience" component = { AddExp } />
             </Switch>
           </div>
           <Footer/>
