@@ -18,6 +18,7 @@ import EditProfile from './components/edit-profile/EditProfile';
 import PrivateRoute from './components/common/PrivateRoute';
 import AddExp from './components/add-profile-info/AddExp';
 import AddEdu from './components/add-profile-info/AddEdu';
+import Profiles from './components/profiles/Profiles';
 
 import './App.css';
 
@@ -60,6 +61,7 @@ function App() {
             <Switch>
               <PrivateRoute exact path="/add-education" component = { AddEdu } />
             </Switch>
+            <Route exact path="/profiles" component = { Profiles } />
           </div>
           <Footer/>
         </div>
