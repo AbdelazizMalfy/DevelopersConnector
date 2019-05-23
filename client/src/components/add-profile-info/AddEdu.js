@@ -100,7 +100,7 @@ class AddEdu extends Component {
                         className={classnames("form-control form-control-lg",{
                             'is-invalid': errors.fieldofstudy
                         })} 
-                        placeholder="Field Of Study" 
+                        placeholder="* Field Of Study" 
                         name="fieldofstudy"
                         value={this.state.fieldofstudy}
                         onChange={this.onChange} />
