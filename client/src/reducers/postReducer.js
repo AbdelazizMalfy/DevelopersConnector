@@ -4,9 +4,14 @@ const initialState = {
     loading: false
 }
 
-export default function (state=initialState.action) {
+export default function (state=initialState,action) {
     switch (action.type) {
         default:
             return state;
+        case 'ADD_POST':
+            return {
+                ...state,
+                posts:[action.payload, ...state.posts]
+            }
     }
 }

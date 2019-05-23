@@ -20,6 +20,7 @@ import AddExp from './components/add-profile-info/AddExp';
 import AddEdu from './components/add-profile-info/AddEdu';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
+import Posts from './components/Posts/Posts';
 
 import './App.css';
 
@@ -64,6 +65,9 @@ function App() {
             </Switch>
             <Route exact path="/profiles" component = { Profiles } />
             <Route exact path="/profile/:handle" component = { Profile } />
+            <Switch>
+              <PrivateRoute exact path="/feed" component = { Posts } />
+            </Switch>
           </div>
           <Footer/>
         </div>
