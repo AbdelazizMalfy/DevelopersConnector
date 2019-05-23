@@ -6,7 +6,7 @@ import Spinner from '../common/Spinner';
 import ProfileHeader from './ProfileHeader';
 import ProfileAbout from './ProfileAbout';
 import ProfileCreds from './ProfileCreds';
-import ProfileGithub from './ProfileGithub';
+// import ProfileGithub from './ProfileGithub';
 import { getProfileByHandle } from '../../actions/profileAction';
 
 
@@ -38,7 +38,7 @@ class Profile extends Component {
                     <ProfileHeader profile={profile} />
                     <ProfileAbout profile={profile} />
                     <ProfileCreds profile={profile} />
-                    {profile.githubusername ? <ProfileGithub username={profile.githubusername} /> : null }
+                    {/* {profile.githubusername ? <ProfileGithub username={profile.githubusername} /> : null } */}
                 </div>
             )
         }
