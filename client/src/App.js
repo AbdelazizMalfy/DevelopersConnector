@@ -21,6 +21,7 @@ import AddEdu from './components/add-profile-info/AddEdu';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/Posts/Posts';
+import Post from './components/post/Post';
 
 import './App.css';
 
@@ -67,6 +68,9 @@ function App() {
             <Route exact path="/profile/:handle" component = { Profile } />
             <Switch>
               <PrivateRoute exact path="/feed" component = { Posts } />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/post/:id" component = { Post } />
             </Switch>
           </div>
           <Footer/>
