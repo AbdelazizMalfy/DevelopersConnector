@@ -18,6 +18,23 @@ export const addPost = (newPost) => dispatch => {
 }
 
 
+// Delete post 
+export const deletePost = (id) => dispatch => {
+    axios.delete(`/api/posts/${id}`)
+        .then(res => 
+            dispatch({
+                type: 'DELETE_POST',
+                payload: id
+            })
+            ).catch(err => 
+                dispatch({
+                    type: 'GET_ERRORS',
+                    payload: err.response.data
+                })
+            )
+}
+
+
 // Get all posts 
 export const getPosts = () => dispatch =>{
     dispatch(setPostLoading())
