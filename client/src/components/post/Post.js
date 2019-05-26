@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Spinner from '../common/Spinner';
 import PostItem from '../Posts/PostItem';
+import CommentForm from './CommentForm';
 import { getPost } from '../../actions/postActions';
+import CommentFeed from './CommentFeed';
  
 class Post extends Component {
     componentDidMount() {
@@ -15,10 +17,14 @@ class Post extends Component {
         
         let postContent ; 
 
-        if( post === null || loading ) {
+        if( post === null || loading || Object.keys(post).length === 0 ) {
             postContent = <Spinner />
         } else {
-            postContent = ( <div> <PostItem post={post} showActions={false} /> </div> )
+            postContent = ( <div> 
+                <PostItem post={post} showActions={false} />
+                <CommentForm postId={post._id} />
+                <CommentFeed postId={post._id} comments={post.comments} />
+                </div> )
         }
 
     
