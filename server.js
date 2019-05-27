@@ -34,8 +34,6 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 
-app.get('/', (req,res) => res.send('hello app'));
-
 // Use Route 
 app.use('/api/users',users)
 app.use('/api/profile',profile)
