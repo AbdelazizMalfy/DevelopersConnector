@@ -93,7 +93,7 @@ router.post('/login', (req,res) => {
                     avatar:user.avatar
                 }
 
-                jwt.sign(payload , keys.secretOrKey , {expiresIn : 3600} , (err,token) =>{
+                jwt.sign(payload , keys.secretOrKey , (err,token) =>{
                     res.json({
                         success: true,
                         token: 'Bearer ' + token
